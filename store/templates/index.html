@@ -1,0 +1,332 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load cart %}
+{% load custom_filter %}
+
+<style>
+ .category {
+
+         position:sticky;
+         top:56px;
+
+         width:100%;
+        /* border:2px solid red; */
+        display:flex;
+        padding:3px;
+        margin:3px;
+        background-color:#eeecf8;
+        /* flex-wrap: wrap; */
+        justify-content: center; /*  horrizontally center the things */
+        /* flex-direction: row; */
+        justify-content:space-evenly;
+        /* text-decoration: none; */
+        font-weight: bold;
+        z-index:1
+    }
+    .category ul li{
+    list-style-type:none;
+    }
+
+    #products{
+<!--            width:100vw;-->
+<!--            height:100vh;-->
+            z-index:1;
+
+    }
+    .col-md-3{
+      display:inline-block;
+      margin-left:-4px;
+      }
+
+      .col-md-3 img {
+    width: 60%;
+    height: auto;
+    box-sizing: border-box;
+    margin: auto;
+}
+        body .carousel-control-prev-icon,
+      body .carousel-control-next-icon{
+      background-color:blue;
+      }
+
+
+
+        .carousel-control-prev{
+    left: 0;
+    border: none;
+    background: padding-box;
+
+    }
+    .carousel-control-next{
+    right:0;
+    border:none;
+    background:padding-box;
+
+    }
+      .carousel-indicators .active{
+      background-color:blue;
+      }
+      body .carousel-indicator li{
+      background-color:blue;
+      }
+
+
+      body .no-padding{
+      padding-left:0;
+      padding-right:0;
+      }
+
+      /* services section  */
+#services{
+    margin:1px;
+    display:flex;
+
+}
+#services .box{
+    height:362px;
+    border:2px solid brown;
+    border-radius: 23px;
+    margin:10px 31px;
+    padding:20px;
+    box-shadow: 5px 5px 10px rgb(151, 64, 13);
+    /* box-shadow: -5px -5px 10px green; */
+        /* box-shadow:inset 5px 50px blue; */
+    background:rgb(233, 208, 192);
+
+}
+#services .box:hover{
+    /* height:334px; */
+    border:2px solid brown;
+    border-radius: 23px;
+    margin:10px 34px;
+    padding:20px;
+    /* box-shadow: 5px 5px rgb(151, 64, 13); */
+    box-shadow: -5px -5px 10px rgb(151, 64, 13);
+        /* box-shadow:inset 5px 50px blue; */
+    background-color:rgb(211, 147, 110);
+
+}
+#services .box img{
+    height:130px;
+    display: block;
+    margin:auto;
+}
+.h-secondary{
+    font-size:1.2rem;
+    padding:12px;
+}
+.h-primary{
+    font-size:2.8rem;
+    padding:12px;
+    font-family: 'Bree Serif', serif;
+
+}
+.center{
+    text-align: center;
+}
+
+/* client section */
+
+#client-section{
+    /* height:243px; */
+    position:relative;
+    margin-top: 20px;
+
+}
+#client-section::before{
+    content:"";
+    background: url('../client-bg.png') no-repeat center center/cover;
+    position:absolute;
+    height:100%;
+    width:100%;
+    z-index:-1;
+    opacity:0.4;
+}
+#clients{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+.client-item{
+    padding:5px;
+}
+#clients img{
+    height:116px;
+}
+
+#chd{
+margin:5px
+}
+#chd img{
+height:288px;
+}
+
+
+
+</style>
+{% load static %}
+<!-- body -->
+
+
+<!-- filter -->
+
+<div class="category">
+    <div><a href="/" class=" list-group-item-action ">All products</a></div>
+    {% for category in categories %}
+    <ul>
+        <li><a href="/?category={{category.id}}" class=" list-group-item-action ">{{category.name}}</a></li>
+    </ul>
+    {% endfor %}
+</div>
+
+
+<!--carousel-->
+<section id="chd">
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+
+    <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img  src="static/shop/h3.jpg" class="d-block w-100 " alt="...">
+    </div>
+    <div class="carousel-item">
+      <img  src="static/shop/h1.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img  src="static/shop/h2.jpg" class="d-block w-100" alt="...">
+    </div>
+  </div>
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden"></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden"></span>
+  </button>
+</div>
+</section>
+<!--end !st carousel-->
+
+
+
+<!--    carousel-->
+<section>
+<div id="carouselExampleDark" class="carousel carousel-dark slide m-5 " data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+            {% for i in range %}
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="{{i}}"
+                    aria-label="Slide 2"></button>
+            {% endfor %}
+        </div>
+        <h3>Recommended for you</h3>
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="10000">
+
+                <div class="col-xs-3 col-sm-3 col-md-3">
+                    <div class="card" style="width: 18rem;">
+                        <img src='{{product.0.image.url}}'  class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{product.0.product_name}}</h5>
+                            <p class="card-text">{{product.0.price}}
+                                </p>
+                            <a href="#" class="btn btn-primary">Add to cart</a>
+                        </div>
+                    </div>
+                </div>
+                {% for i in product|slice:"1:" %}
+                <div class="col-xs-3 col-sm-3 col-md-3">
+                    <div class="card" style="width: 18rem;">
+                        <img src='{{i.image.url}}' class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{i.product_name}}</h5>
+
+                            <p class="card-text">{{i.price}}
+                                </p>
+                            <a href="#" class="btn btn-primary">Add to cart</a>
+                        </div>
+                    </div>
+                </div>
+                {% if forloop.counter|divisibleby:3 and forloop.counter > 0 and not forloop.last %}
+            </div>
+            <div class="carousel-item" data-bs-interval="2000">
+                {% endif %}
+
+                {% endfor %}
+            </div>
+        </div>
+
+
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden"></span>
+    </button>
+</div>
+</section>
+
+<div class="row">
+<div class="col-lg-3 mx-auto">
+    <div class="list-group">
+        <a href="/" class="list-group-item list-group-item-action">All product</a>
+        {% for category in categories %}
+        <a href="/?category={{category.id}}" class="list-group-item list-group-item-action">{{category.name}}</a>
+        {%endfor%}
+    </div>
+</div>
+
+<!-- all products -->
+<div id='products' class="col-lg-9 mx-auto">
+    <div class="row mx-auto mt-5">
+        {% for product in products %}
+
+        <div class="card mx-auto mb-3" id={{product.id}} style="width: 18rem;">
+            <img class="card-img-top" src="{{product.image.url}}" alt="Card image cap">
+            <div class="card-body">
+                <p class="card-title"><i>{{product.name}}</i></p>
+                <p class="card-text"><b>{{product.price|currency}}</b></p>
+                <!-- {{product | is_in_cart:request.session.cart }} -->
+            </div>
+
+            <div class="card-footer p-0 no-gutters">
+
+                {% if product|is_in_cart:request.session.cart %}
+                <div class="row no-gutters">
+                    <form action="/#{{product.id}}" class="col-2 " method="post">
+                        {% csrf_token %}
+                        <input hidden type="text" name='product' value='{{product.id}}'>
+                        <input hidden type="text" name='remove' value='True'>
+                        <input type="submit" value=" - " class="btn btn-block btn-secondary border-right">
+                    </form>
+                    <div class="text-center col">{{product|cart_quantity:request.session.cart}} in Cart</div>
+                    <form action="/#{{product.id}}" class="col-2 " method="post">
+                        {% csrf_token %}
+                        <input hidden type="text" name='product' value='{{product.id}}'>
+                        <input type="submit" value=" + " class="btn btn-block btn-secondary border-left">
+                    </form>
+                </div>
+                {% else %}
+                <form action="/#{{product.id}}" method="POST" class="btn-block">
+                    {% csrf_token %}
+                    <input hidden type="text" name='product' value='{{product.id}}'>
+                    <input type="submit" class="float-right btn btn-light bg-info  form-control"
+                           value="Add To Cart">
+                </form>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+</div>
+{% endblock %}

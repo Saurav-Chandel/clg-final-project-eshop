@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+{%load static%}
+<style>
+
+
+  /* css reset */
+*{
+    margin:0;
+    padding:0;
+}
+/* html{
+    scroll-behavior: smooth;
+} */
+/* css variables */
+:root{
+    --navbar-height:59px;
+}
+
+/* Navigation bar */
+#navbar{
+    display:flex;
+    align-items:center;
+    /* justify-content: center; */
+    /* background-color: brown; */
+    /* position: relative; */
+    top: 0px;
+    position:sticky
+
+}
+
+#navbar::before{
+    content:"";
+    background-color:black;
+    position:absolute;
+    top:0px;
+    left:0px;
+    height:100%;
+    width:100%;
+    z-index:-1;
+    opacity:0.4;
+}
+/* Logo 7nd image  */
+#logo{
+    margin: -15px 33px;
+    height: 90px;
+}
+#logo img{
+    margin: 11px -29px;
+    height: 74px;
+
+}
+
+
+
+/* List items */
+#navbar ul{
+    display:flex;
+    font-size:1.3rem;
+    font-family: 'Baloo Bhai 2', cursive;
+}
+
+/* List items */
+#navbar ul li{
+
+    list-style: None;   /* remove the bullets which is included in a tag. */
+
+}
+
+#navbar ul li a{
+    display:block;
+    padding:3px 22px;
+    border-radius:20px;
+    text-decoration:None;
+    color:white;
+}
+/* hover */
+#navbar ul li a:hover{
+   color:black;
+   background-color: white;
+   font-weight:bolder;
+   border:2px solid brown;
+}
+
+/* Home section  */
+#home{
+    display:flex;
+    flex-direction: column;
+    padding:3px 100px;
+    height:374px;
+    align-items: center;
+    justify-content: center;
+    /* position: relative; */
+
+
+
+}
+#home::before{
+    content:"";
+    background:url('static/shop/bg4.jpeg') no-repeat center center/cover;
+    position:absolute;
+    top:0px;
+    left:0px;
+    height:454px;
+    width:100%;
+    z-index:-1;
+    opacity:0.8;
+
+}
+#home h1{
+    color:white;
+    text-align: center;
+    font-family: 'Bree Serif', serif;
+}
+#home p{
+    color:white;
+    text-align: center;
+    font-family: 'Bree Serif', serif;
+}
+/* services section  */
+#services{
+    margin:1px;
+    display:flex;
+
+}
+#services .box{
+    height:292px;
+    border:2px solid brown;
+    border-radius: 23px;
+    margin:10px 31px;
+    padding:20px;
+    box-shadow: 5px 5px 10px rgb(151, 64, 13);
+    /* box-shadow: -5px -5px 10px green; */
+        /* box-shadow:inset 5px 50px blue; */
+    background:rgb(233, 208, 192);
+
+}
+#services .box:hover{
+    /* height:334px; */
+    border:2px solid brown;
+    border-radius: 23px;
+    margin:10px 34px;
+    padding:20px;
+    /* box-shadow: 5px 5px rgb(151, 64, 13); */
+    box-shadow: -5px -5px 10px rgb(151, 64, 13);
+        /* box-shadow:inset 5px 50px blue; */
+    background-color:rgb(211, 147, 110);
+
+}
+#services .box img{
+    height:130px;
+    display: block;
+    margin:auto;
+}
+/* content section  */
+#contact{
+    position:relative;
+    /* background: url('../contact.jpeg') no-repeat center center/cover; */
+
+}
+#contact::before{
+   content:"";
+   background: url('static/shop/contact.jpeg') no-repeat center center/cover;
+   position:absolute;
+   width:100%;
+   height:100%;
+   z-index:-1;
+   opacity:0.5;
+}
+#contact-box{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding:13px;
+}
+#contact-box input{
+    padding:3px;
+    width:100%;
+    border-radius:10px;
+    font-size: 1.1rem;
+}
+#contact-box form{
+    width:40%;
+}
+#contact-box label{
+    font-size:1.3rem;
+    font-family: 'Bree Serif', serif;
+}
+footer{
+    background: black;
+    color:white;
+    padding:3px 10px;
+}
+
+
+/* Utility classes */
+.h-primary{
+    font-size:2.8rem;
+    padding:12px;
+    font-family: 'Bree Serif', serif;
+}
+.h-secondary{
+    font-size:1.2rem;
+    padding:12px;
+}
+.btn{
+
+    border:2px solid white;
+    border-radius:10px;
+    background:None;
+
+<!--    background-color: brown;-->
+    color:black;
+    margin:35px;
+    font-size: 1.3rem;
+    cursor:pointer;
+
+
+}
+.btn a{
+   display:block;
+   padding:6px 20px;
+     border:2px solid white;
+     border-radius:10px;
+    text-decoration:None;
+    color:white;
+}
+.btn a:hover{
+   color:black;
+   background-color: white;
+   font-weight:bolder;
+   border:2px solid brown;
+   border-radius:10px;
+   text-decoration:None;
+}
+.center{
+    text-align: center;
+}
+/* client section */
+
+#client-section{
+    /* height:243px; */
+    position:relative;
+    margin-top: 20px;
+
+}
+#client-section::before{
+    content:"";
+    background: url('static/shop/client-bg.png') no-repeat center center/cover;
+    position:absolute;
+    height:100%;
+    width:100%;
+    z-index:-1;
+    opacity:0.4;
+}
+#clients{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+.client-item{
+    padding:5px;
+}
+#clients img{
+    height:116px;
+}
+
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food delivery</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" media="screen and (max-width:770px)" href="css/phone.css">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400;500&family=Bree+Serif&display=swap"
+          rel="stylesheet">
+</head>
+<body>
+<nav id="navbar">
+    <div id="logo">
+        <img src="static/shop/logo1.png" alt="Myonline meal.com">
+    </div>
+    <ul>
+        <li class="item"><a href="#home">Home</a></li>
+        <li class="item"><a href="#services-container">Services</a></li>
+        <li class="item"><a href="#client-section">Our clients</a></li>
+        <li class="item"><a href="#contact">Conatct Us</a></li>
+    </ul>
+
+</nav>
+<section id="home">
+    <h1 class="h-primary"><pre>Make your Home
+      Dream Home with Dream Decor.      </pre>
+
+    </h1>
+    <P>A Home is what you make it! So turn your house into a home with a variety of decorative items or Homele Decor</p>
+
+    <button class="btn"><a href="/store">SHOP NOW</a></button>
+</section>
+
+<section id="services-container">
+    <h1 class="h-primary center">Our services</h1>
+    <div id="services">
+        <div class="box">
+            <img src="static/shop/h1.jpg" alt="">
+            <h2 class="h-secondary center">Paintings </h2>
+            <p class="center">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt laudantium deserunt
+                veniam autem qtur adipisicing elit. Enim repellendus quae nobis optio facere sunt eos doloremque
+                deleniti, atque facilis totam. Ullam, voluptatum?</p>
+        </div>
+        <div class="box">
+            <img src="static/shop/h2.jpg" alt="">
+            <h2 class="h-secondary center">Bulk Ordering</h2>
+            <p class="center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, aliquid libero.
+                Voluptatibus, soluta deleniti! Cupiditate \tio facere sunt eos doloremque deleniti, atque facilis totam.
+                Ullam, voluptatum?</p>
+        </div>
+        <div class="box">
+            <img src="static/shop/h3.jpg" alt="">
+            <h2 class="h-secondary center">decors Ordering</h2>
+            <p class="center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos architecto, fuga dmet
+                consectetur adipisicing elit. Enim repellendus quae nobis optio facere sunt eos doloremque deleniti,
+                atque facilis totam. Ullam, voluptatum?</p>
+        </div>
+
+    </div>
+</section>
+<section id="client-section">
+    <h1 class="h-primary center">Our Clients</h1>
+    <div id="clients">
+        <div class="client-item">
+            <img src="static/shop/client1.png" alt="Our client">
+        </div>
+        <div class="client-item">
+            <img src="static/shop/client2.png" alt="Our client">
+        </div>
+        <div class="client-item">
+            <img src="static/shop/client3.png" alt="Our client">
+        </div>
+        <div class="client-item">
+            <img src="static/shop/client4.png" alt="Our client">
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <h1 class="h-primary center">Contact us</h1>
+    <div id="contact-box">
+        <form action="">
+            <div class="form-group">
+                <label for="name">Name: </label>
+                <input type="text" name="name" id="name" placeholder="enter your name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email: </label>
+                <input type="text" name="email" id="email" placeholder="enter your Email">
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone No.: </label>
+                <input type="text" name="phone" id="phone" placeholder="enter your Phone No.">
+            </div>
+
+        </form>
+    </div>
+</section>
+<footer>
+    <div class="center">
+        copyright &copy; www.myOnlinemeal.com. All rights reserved!
+    </div>
+</footer>
+
+</body>
+</html>

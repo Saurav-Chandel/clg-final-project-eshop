@@ -80,14 +80,14 @@ WSGI_APPLICATION = 'Eshop.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'shopping',
-        'USER': 'root',
-        'PASSWORD': 'root',
-        'HOST': 'localhost',
-        'PORT': '3306',
-        # 'OPTIONS'  : { 'init_command' : 'SET storage_engine=MyISAM', },
+    "default": {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "happyhills",
+        "USER": "admin",
+        "HOST": 'database-1.c2ince2oewy3.us-east-1.rds.amazonaws.com',
+        "PASSWORD": 'Chandelsaurav817',
+        "PORT": '3306',
+      
     }
 }
 

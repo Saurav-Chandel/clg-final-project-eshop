@@ -35,7 +35,6 @@ class Index(View):
         return redirect('homepage')
 
 
-
     def get(self , request):
         # print()
         return HttpResponseRedirect(f'/store{request.get_full_path()[1:]}')
@@ -43,6 +42,7 @@ class Index(View):
 
 def store(request):
     cart = request.session.get('cart')
+    print(cart)
     if not cart:
         request.session['cart'] = {}
     products = None
@@ -56,21 +56,13 @@ def store(request):
     data = {}
     data['products'] = products
     data['categories'] = categories
-
     print('you are : ', request.session.get('email'))
     # return render(request, 'index.html', data)
-
-
     items = Item.objects.all()
-    print(items)
+    # print(items)
     n = len(items)
     nslides = n // 4 + ceil((n / 4) - (n // 4))
     #a = Product.objects.get(name='Sunrise')
     #print(a.price)
     params = {'no_of_slides': nslides, 'range': range(1, nslides), 'product': items,'products':products,'categories':categories}
     return render(request, 'index.html', params)
-
-
-
-
-

@@ -27,5 +27,6 @@ class CheckOut(View):
                           quantity=cart.get(str(product.id)))
             order.save()
         request.session['cart'] = {}
+        print('--------------------------------')
 
         return redirect('cart')

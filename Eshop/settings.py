@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'store'
+    'store',
+    "storages"
 ]
 
 MIDDLEWARE = [
@@ -80,8 +81,13 @@ WSGI_APPLICATION = 'Eshop.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'shopping',
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'HOST': 'localhost',
+        'PORT': '3306',
+        # 'OPTIONS'  : { 'init_command' : 'SET storage_engine=MyISAM', },
     }
 }
 
@@ -105,9 +111,6 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-
-
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
@@ -122,14 +125,35 @@ USE_L10N = True
 USE_TZ = True
 
 
+if not DEBUG:
+    print("________1_______")
+    from main.aws.conf import *
+
+    # STATIC_ROOT = os.path.join(BASE_DIR, "static_root")
+    # MEDIA_ROOT = os.path.join(BASE_DIR, "media_root")
+    # STATIC_URL = "/static_url/"
+    # MEDIA_URL = "/media_url/"
+    # STATICFILES_DIRS = (os.path.join(BASE_DIR, "static_dev"),)
+
+else:
+    STATIC_URL = '/static/'
+    STATIC_ROOT = os.path.join(BASE_DIR, "static")
+    MEDIA_URL = "/image/download/"
+    MEDIA_ROOT = BASE_DIR
+    # STATICFILES_DIRS = (os.path.join(BASE_DIR, "static_cdn"),)
+
+AWS_STORAGE_BUCKET_NAME = "e-shop-django"
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
-MEDIA_URL = "/image/download/"
-MEDIA_ROOT = BASE_DIR
+# STATIC_URL = '/static/'
+# STATIC_ROOT = os.path.join(BASE_DIR, "static")
+# MEDIA_URL = "/image/download/"
+# MEDIA_ROOT = BASE_DIR
 # STATICFILES_DIRS = (os.path.join(BASE_DIR, "static_cdn"),)
 
 
 
+STRIPE_SECRET_KEY="sk_test_51L3drLSBN7WqSIkpz3kKUoijl0LfxLBZTykfLr5GzN9rUooJKShWkpzJ4eaxzkZi8y6N4FVMSmifb7o9dntDHLAs00VMfsIqcE"
+STRIPE_PUBLIC_KEY="pk_test_51L3drLSBN7WqSIkpYdOFdttKauIvhwSNhqZzqiTtVIOLKOR5Wobl3Uuk7P9cPDPya58ejgWWsXxjlOeulQBYy2rK00gPjOzpzU"

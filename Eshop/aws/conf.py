@@ -15,8 +15,8 @@ AWS_DEFAULT_ACL=None
 # }
 # AWS_LOCATION = "static"
 # STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
-STATICFILES_STORAGE = "main.aws.utils.StaticRootS3BotoStorage"
-DEFAULT_FILE_STORAGE = "main.aws.utils.MediaRootS3BotoStorage"
+STATICFILES_STORAGE = "Eshop.aws.utils.StaticRootS3BotoStorage"
+DEFAULT_FILE_STORAGE = "Eshop.aws.utils.MediaRootS3BotoStorage"
 
 AWS_S3_SIGNATURE_VERSION="s3v4"
 

@@ -127,7 +127,7 @@ USE_TZ = True
 
 if not DEBUG:
     print("________1_______")
-    from main.aws.conf import *
+    from Eshop.aws.conf import *
 
     # STATIC_ROOT = os.path.join(BASE_DIR, "static_root")
     # MEDIA_ROOT = os.path.join(BASE_DIR, "media_root")

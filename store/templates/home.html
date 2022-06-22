@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-{% load static %}
-<style>
 
+{% load static %}
+
+<style>
 
   /* css reset */
 *{
@@ -95,7 +96,7 @@
 }
 #home::before{
     content:"";
-    background:url({% static 'shop/bg4.jpeg' %}) no-repeat center center/cover;
+    background:url('{% static 'shop/bg4.jpeg' %}') no-repeat center center/cover;
     position:absolute;
     top:0px;
     left:0px;

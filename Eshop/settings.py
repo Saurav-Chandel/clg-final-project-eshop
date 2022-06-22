@@ -27,9 +27,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '^_g%33qd(g8bjc+*40&uh(ptgkb$&-*+0!i3$lu7xj1u166cbb'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+
+DEBUG = True
+
 ALLOWED_HOSTS = ["*"]
 
+AUTH_USER_MODEL='store.User'
 
 # Application definition
 
@@ -82,16 +85,13 @@ WSGI_APPLICATION = 'Eshop.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": "happyhills",
+        "NAME": "shopping",
         "USER": "admin",
-        "HOST": 'database-1.c2ince2oewy3.us-east-1.rds.amazonaws.com',
+        "HOST": 'shopping.c2ince2oewy3.us-east-1.rds.amazonaws.com',
         "PASSWORD": 'Chandelsaurav817',
         "PORT": '3306',
-      
     }
 }
-
-
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 
@@ -109,7 +109,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/

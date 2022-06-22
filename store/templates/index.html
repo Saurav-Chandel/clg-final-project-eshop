@@ -3,14 +3,13 @@
 {% block content %}
 
 {% load cart %}
+
 {% load custom_filter %}
 
 <style>
  .category {
-
          position:sticky;
          top:56px;
-
          width:100%;
         /* border:2px solid red; */
         display:flex;
@@ -51,8 +50,6 @@
       background-color:blue;
       }
 
-
-
         .carousel-control-prev{
     left: 0;
     border: none;
@@ -84,6 +81,7 @@
     display:flex;
 
 }
+
 #services .box{
     height:362px;
     border:2px solid brown;
@@ -137,21 +135,24 @@
 }
 #client-section::before{
     content:"";
-    background: url('../client-bg.png') no-repeat center center/cover;
+    background: url("{% static 'client-bg.png' %}") no-repeat center center/cover;
     position:absolute;
     height:100%;
     width:100%;
     z-index:-1;
     opacity:0.4;
 }
+
 #clients{
     display:flex;
     justify-content: center;
     align-items: center;
 }
+
 .client-item{
     padding:5px;
 }
+
 #clients img{
     height:116px;
 }
@@ -159,6 +160,7 @@
 #chd{
 margin:5px
 }
+
 #chd img{
 height:288px;
 }
@@ -244,6 +246,7 @@ height:288px;
                         </div>
                     </div>
                 </div>
+                
                 {% if forloop.counter|divisibleby:3 and forloop.counter > 0 and not forloop.last %}
             </div>
             <div class="carousel-item" data-bs-interval="2000">

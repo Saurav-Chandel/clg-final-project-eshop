@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-{%load static%}
+{% load static %}
 <style>
 
 
@@ -97,7 +97,7 @@
 }
 #home::before{
     content:"";
-    background:url('static/shop/bg4.jpeg') no-repeat center center/cover;
+    background:url('{% static shop/bg4.jpeg %}'') no-repeat center center/cover;
     position:absolute;
     top:0px;
     left:0px;
@@ -293,7 +293,7 @@ footer{
 </nav>
 <section id="home">
     <h1 class="h-primary"><pre>Make your Home
-      Dream Home with Dream Decor.      </pre>
+      Dream Home with Dream Decor.</pre>
 
     </h1>
     <P>A Home is what you make it! So turn your house into a home with a variety of decorative items or Homele Decor</p>

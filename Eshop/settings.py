@@ -28,7 +28,7 @@ SECRET_KEY = '^_g%33qd(g8bjc+*40&uh(ptgkb$&-*+0!i3$lu7xj1u166cbb'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -139,7 +139,7 @@ else:
     STATIC_ROOT = os.path.join(BASE_DIR, "static")
     MEDIA_URL = "/image/download/"
     MEDIA_ROOT = BASE_DIR
-    STATICFILES_DIRS = (os.path.join(BASE_DIR, "static_cdn"),)
+    # STATICFILES_DIRS = (os.path.join(BASE_DIR, "static_cdn"),)
 
 AWS_STORAGE_BUCKET_NAME = "e-shop-django"
 
